@@ -4,6 +4,7 @@
 
 #include <QtWidgets/QMessageBox>
 
+#include "local_settings.h"
 #include "lib/database/TDatabase.h"
 #include "lib/database/TDatabaseStructure.h"
 #include "lib/database/TDatabaseStructureParser.h"
@@ -16,7 +17,7 @@ QString TDatabase::databaseName;
 QString TDatabase::userName;
 QString TDatabase::password;
 QString TDatabase::connectionName;
-QSettings TDatabase::settings("ttyrshb", "dddd");
+QSettings TDatabase::settings("nnrus", "shadow");
 QDomDocument TDatabase::domDocument;
 QString TDatabase::structString;
 
@@ -52,11 +53,11 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(codec);
     //QTextCodec::setCodecForCStrings(codec);
     
-    TDatabase::hostName = "10.196.40.65";
+    TDatabase::hostName = LOCAL_SETTINGS_MYSQL_HOST;
     TDatabase::port = 3306;
-    TDatabase::databaseName = "shadow";
-    TDatabase::userName = "";
-    TDatabase::password = "";
+    TDatabase::databaseName = LOCAL_SETTINGS_MYSQL_DB;
+    TDatabase::userName = LOCAL_SETTINGS_MYSQL_USER;
+    TDatabase::password = LOCAL_SETTINGS_MYSQL_PASSWORD;
     TDatabase::connectionName = "rshb";
     
     QSqlDatabase::addDatabase("QMYSQL", TDatabase::connectionName);

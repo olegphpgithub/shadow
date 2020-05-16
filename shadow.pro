@@ -109,15 +109,19 @@ equals(XSLTPROCESSOR, LIBXSLT) {
     
     # libxml2-2.7.2
     win32:INCLUDEPATH += ext\libxml2\win32\include
-    win32:LIBS += -L"ext\libxml2\win32\lib" -llibxml2
+    win32:LIBS += -L"C:\opt\lib" -llibxml2_a
     unix:INCLUDEPATH += ext/libxml2/unix/include
     unix:LIBS += -Lext/libxml2/unix/lib -llibxml2
     
     # libxslt-1.1.26
-    win32:INCLUDEPATH += ext\libxslt\win32\include
-    win32:LIBS += -L"ext\libxslt\win32\lib" -llibxslt
+    win32:INCLUDEPATH += C:\opt\xslt\include
+    win32:LIBS += -L"C:\opt\xslt\lib" -llibxslt_a
     unix:INCLUDEPATH += ext/libxslt/unix/include
     unix:LIBS += -Lext/libxslt/unix/lib -llibxslt
     
 }
 
+# mysql
+    INCLUDEPATH += c:\qt\mysql\include 
+    LIBS += -L"c:\qt\mysql\lib\vs14" -lmysqlclient
+    LIBS += /NODEFAULTLIB:LIBCMT
