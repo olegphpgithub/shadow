@@ -1,0 +1,1 @@
+mysqldump -u root -p -h 127.0.0.1 shadow --tables offices users computers computersPasswords computersPasswordsLogs netequipments 

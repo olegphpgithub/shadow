@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <toolBar>
+        <action name="employeeview">
+            <displayName>Сотрудники</displayName>
+            <displayTable>employeeview</displayTable>
+        </action>
+    </toolBar>
+    <tableView name="employeeview">
+        <table>
+            <field name="empId">
+                <displayName>Идентификатор</displayName>
+                <visible>true</visible>
+                <editor>spinBox</editor>
+                <primaryKey/>
+            </field>
+            <field name="name">
+                <displayName>Наименование</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="cityId">
+                <displayName>Город ID</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>cityview</relationTable>
+                    <relationField>cityMyId</relationField>
+                    <displayField>cityMyName</displayField>
+                </relation>
+            </field>
+            <field name="countryId">
+                <displayName>Страна ID</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>country</relationTable>
+                    <relationField>id</relationField>
+                    <displayField>name</displayField>
+                </relation>
+            </field>
+        </table>
+    </tableView>
+</database>

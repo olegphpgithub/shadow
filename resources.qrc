@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/menuFile">
+        <file>res/images/commit.png</file>
+        <file>res/images/rollBack.png</file>
+    </qresource>
+    <qresource prefix="/menuEdit">
+        <file>res/images/listRemove.png</file>
+        <file>res/images/listAdd.png</file>
+    </qresource>
+    <qresource prefix="/menuDatabase">
+        <file>res/images/previous.png</file>
+        <file>res/images/next.png</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>res/images/favicon/favicon_16x16.png</file>
+    </qresource>
+    <qresource prefix="/xsl">
+        <file>res/xslt1.0/exporttext.xsl</file>
+        <file>res/xslt1.0/exporthtml.xsl</file>
+        <file>res/xslt2.0/exporttext.xsl</file>
+        <file>res/xslt2.0/exporthtml.xsl</file>
+    </qresource>
+</RCC>

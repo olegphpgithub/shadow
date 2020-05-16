@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <head>
+        <name>offices</name>
+        <field name="officeAddress">Адрес</field>
+    </head>
+    <body>
+        <row>
+            <field name="officeAddress">180000,60,,ПСКОВ Г,,НЕКРАСОВА УЛ,44А,,</field>
+        </row>
+        <row>
+            <field name="officeAddress">182200,60,ПСКОВСКАЯ ОБЛ,НОВОСОКОЛЬНИКИ Г,,ТИХМЯНОВА УЛ,9,,</field>
+        </row>
+        <row>
+            <field name="officeAddress">182840,60,ПСКОВСКАЯ ОБЛ,,БЕЖАНИЦЫ ПГТ,СМОЛЬНАЯ УЛ,6А,,</field>
+        </row>
+        <row>
+            <field name="officeAddress">182100,60,ПСКОВСКАЯ ОБЛ,ВЕЛИКИЕ ЛУКИ Г,,ГАГАРИНА ПР-КТ,9,корпус 1,1028</field>
+        </row>
+        <row>
+            <field name="officeAddress">182670,60,ПСКОВСКАЯ ОБЛ,ДНО Г,,КОСМОНАВТОВ УЛ,26А,,</field>
+        </row>
+        <row>
+            <field name="officeAddress">182503,60,ПСКОВСКАЯ ОБЛ,НЕВЕЛЬ Г,,ЛОМОНОСОВА УЛ,5,,</field>
+        </row>
+        <row>
+            <field name="officeAddress">181350,60,ПСКОВСКАЯ ОБЛ,ОСТРОВ Г,,25 ОКТЯБРЯ УЛ,34,,</field>
+        </row>
+        <row>
+            <field name="officeAddress">181500,60,ПСКОВСКАЯ ОБЛ,ПЕЧОРЫ Г,,СВОБОДЫ УЛ,34,,1003</field>
+        </row>
+        <row>
+            <field name="officeAddress">180016,60,,ПСКОВ Г,,НАРОДНАЯ УЛ,21,,</field>
+        </row>
+    </body>
+</doc>

@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <toolBar>
+        <action name="offices">
+            <displayName>Офисы</displayName>
+            <displayTable>offices</displayTable>
+        </action>
+        <action name="users">
+            <displayName>Сотрудники</displayName>
+            <displayTable>users</displayTable>
+        </action>
+        <action name="computers">
+            <displayName>Компьютеры</displayName>
+            <displayTable>computers</displayTable>
+        </action>
+        <action name="printers">
+            <displayName>Принтеры</displayName>
+            <displayTable>printers</displayTable>
+        </action>
+        <action name="netequipments">
+            <displayName>Телекоммуникационное оборудование</displayName>
+            <displayTable>netequipments</displayTable>
+        </action>
+    </toolBar>
+    <tableView name="offices">
+        <contextMenu>
+            <action name="users">
+                <displayName>Сотрудники</displayName>
+                <displayTable>users</displayTable>
+            </action>
+            <action name="computers">
+                <displayName>Компьютеры</displayName>
+                <displayTable>computers</displayTable>
+            </action>
+            <action name="printers">
+                <displayName>Принтеры</displayName>
+                <displayTable>printers</displayTable>
+            </action>
+            <action name="netequipments">
+                <displayName>Телекоммуникационное оборудование</displayName>
+                <displayTable>netequipments</displayTable>
+            </action>
+        </contextMenu>
+        <table>
+            <field name="officeId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="officeIdentifier">
+                <displayName>Код</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="officeName">
+                <displayName>Наименование</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="officeAddress">
+                <displayName>Адрес</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="users">
+        <contextMenu>
+            <action name="computers">
+                <displayName>Компьютеры</displayName>
+                <displayTable>computers</displayTable>
+            </action>
+            <action name="computerspasswords">
+                <displayName>Пароли</displayName>
+                <displayTable>computerspasswords</displayTable>
+            </action>
+        </contextMenu>
+        <table>
+            <field name="userId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <type>integer</type>
+                <editor>spinBox</editor>
+            </field>
+            <field name="officeId">
+                <displayName>Офис</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>offices</relationTable>
+                    <relationField>officeId</relationField>
+                    <displayField>officeIdentifier</displayField>
+                </relation>
+            </field>
+            <field name="userSurnameNamePatronymic">
+                <displayName>Фамилия имя отчество</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userSex">
+                <displayName>Пол</displayName>
+                <visible>false</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userStatus">
+                <displayName>Статус</displayName>
+                <visible>false</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userBirthday">
+                <displayName>День рождения</displayName>
+                <visible>false</visible>
+                <type>date</type>
+                <editor>dateEdit</editor>
+            </field>
+            <field name="userComing">
+                <displayName>Приход</displayName>
+                <visible>false</visible>
+                <type>date</type>
+                <editor>dateEdit</editor>
+            </field>
+            <field name="userDepartment">
+                <displayName>Отдел</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userPosition">
+                <displayName>Должность</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userTelephoneHome">
+                <displayName>Домашний телефон</displayName>
+                <visible>false</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userTelephoneMobile">
+                <displayName>Мобильный телефон</displayName>
+                <visible>false</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userTelephoneWork">
+                <displayName>Рабочий телефон</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userTelephoneInner">
+                <displayName>Внутренний телефон</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userEMail">
+                <displayName>E-Mail</displayName>
+                <visible>false</visible>
+                <editor>lineEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="computers">
+        <contextMenu>
+            <action name="computerspasswords">
+                <displayName>Пароли</displayName>
+                <displayTable>computerspasswords</displayTable>
+            </action>
+            <action name="printers">
+                <displayName>Принтеры</displayName>
+                <displayTable>printers</displayTable>
+            </action>
+            <action name="computerscomponents">
+                <displayName>Компоненты</displayName>
+                <displayTable>computerscomponents</displayTable>
+            </action>
+        </contextMenu>
+        <table>
+            <field name="computerId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="officeId">
+                <displayName>Офис</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>offices</relationTable>
+                    <relationField>officeId</relationField>
+                    <displayField>officeIdentifier</displayField>
+                </relation>
+            </field>
+            <field name="userId">
+                <displayName>Фамилия имя отчество</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>usersview</relationTable>
+                    <relationField>userId</relationField>
+                    <displayField>userSurnameNamePatronymicPosition</displayField>
+                </relation>
+            </field>
+            <field name="computerNetWorkAddress">
+                <displayName>IP адрес</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerNetWorkName">
+                <displayName>Сетевое имя</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerModel">
+                <displayName>Модель</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerInventoryNumber">
+                <displayName>Инвентарный номер</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerSerialNumber">
+                <displayName>Серийный номер</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerComment">
+                <displayName>Комментарий</displayName>
+                <visible>false</visible>
+                <editor>plainTextEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="printers">
+        <table>
+            <field name="printerId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="officeId">
+                <displayName>Офис</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>offices</relationTable>
+                    <relationField>officeId</relationField>
+                    <displayField>officeIdentifier</displayField>
+                </relation>
+            </field>
+            <field name="computerId">
+                <displayName>Компьютер</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>computersview</relationTable>
+                    <relationField>computerId</relationField>
+                    <displayField>computerNetWorkAddressName</displayField>
+                </relation>
+            </field>
+            <field name="printerNetWorkAddress">
+                <displayName>IP адрес</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="printerNetWorkName">
+                <displayName>Сетевое имя</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="printerModel">
+                <displayName>Модель</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="printerInventoryNumber">
+                <displayName>Инвентарный номер</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="printerSerialNumber">
+                <displayName>Серийный номер</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="printerComment">
+                <displayName>Комментарий</displayName>
+                <visible>false</visible>
+                <editor>plainTextEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="computerspasswords">
+        <contextMenu>
+            <action name="computerspasswordslogs">
+                <displayName>Журнал изменений</displayName>
+                <displayTable>computerspasswordslogs</displayTable>
+            </action>
+        </contextMenu>
+        <table>
+            <field name="computerPasswordId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="userId">
+                <displayName>Фамилия имя отчество</displayName>
+                <visible>true</visible>
+                <editor>text</editor>
+                <relation>
+                    <relationTable>usersview</relationTable>
+                    <relationField>userId</relationField>
+                    <displayField>userSurnameNamePatronymicPosition</displayField>
+                </relation>
+            </field>
+            <field name="computerId">
+                <displayName>Компьютер</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>computersview</relationTable>
+                    <relationField>computerId</relationField>
+                    <displayField>computerNetWorkAddressName</displayField>
+                </relation>
+            </field>
+            <field name="computerPasswordLogin">
+                <displayName>Логин</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerPasswordPassword">
+                <displayName>Пароль</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerPasswordDateTime">
+                <displayName>Дата/Время</displayName>
+                <visible>true</visible>
+                <editor>dateTimeEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="computerspasswordslogs">
+        <table>
+            <field name="computerPasswordLogId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="computerPasswordId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="userId">
+                <displayName>Фамилия имя отчество</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>usersview</relationTable>
+                    <relationField>userId</relationField>
+                    <displayField>userSurnameNamePatronymicPosition</displayField>
+                </relation>
+            </field>
+            <field name="computerId">
+                <displayName>Компьютер</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>computersview</relationTable>
+                    <relationField>computerId</relationField>
+                    <displayField>computerNetWorkAddressName</displayField>
+                </relation>
+            </field>
+            <field name="computerPasswordLogLogin">
+                <displayName>Логин</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerPasswordLogpassword">
+                <displayName>Пароль</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerPasswordLogDateTime">
+                <displayName>Дата/Время</displayName>
+                <visible>true</visible>
+                <editor>dateTimeEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="computerscomponents">
+        <table>
+            <field name="computerComponentId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="computerId">
+                <displayName>Компьютер</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>computersview</relationTable>
+                    <relationField>computerId</relationField>
+                    <displayField>computerNetWorkAddressName</displayField>
+                </relation>
+            </field>
+            <field name="computerComponentTypeId">
+                <displayName>Тип</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>computerscomponentstypes</relationTable>
+                    <relationField>computerComponentTypeId</relationField>
+                    <displayField>computerComponentTypeName</displayField>
+                </relation>
+            </field>
+            <field name="computerComponentVendor">
+                <displayName>Поставщик</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerComponentModel">
+                <displayName>Модель</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerComponentSerialNumber">
+                <displayName>Серийный номер</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="computerComponentComment">
+                <displayName>Комментарий</displayName>
+                <visible>true</visible>
+                <editor>plainTextEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="tellers">
+        <table>
+            <field name="tellerId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+            </field>
+            <field name="officeId">
+                <displayName>Офис</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>offices</relationTable>
+                    <relationField>officeId</relationField>
+                    <displayField>officeIdentifier</displayField>
+                </relation>
+            </field>
+            <field name="tellerSerialNumber">
+                <displayName2>Серийный номер</displayName2>
+                <visible>true</visible>
+            </field>
+            <field name="tellerComment">
+                <displayName2>Комментарий</displayName2>
+                <visible>false</visible>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="netequipments">
+        <contextMenu>
+            <action name="netequipmentspasswords">
+                <displayName>Пароли</displayName>
+                <displayTable>netequipmentspasswords</displayTable>
+            </action>
+        </contextMenu>
+        <table>
+            <field name="netEquipmentId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="officeId">
+                <displayName>Офис</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>offices</relationTable>
+                    <relationField>officeId</relationField>
+                    <displayField>officeIdentifier</displayField>
+                </relation>
+            </field>
+            <field name="netEquipmentNetWorkAddress">
+                <displayName>IP адрес</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netEquipmentNetWorkName">
+                <displayName>Сетевое имя</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netEquipmentModel">
+                <displayName>Модель</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netEquipmentComment">
+                <displayName>Комментарий</displayName>
+                <visible>false</visible>
+                <editor>plainTextEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="netequipmentspasswords">
+        <table>
+            <field name="netEquipmentPasswordId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="netEquipmentId">
+                <displayName>Сетевое имя</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>netequipmentsview</relationTable>
+                    <relationField>netEquipmentId</relationField>
+                    <displayField>netEquipmentNetWorkAddressName</displayField>
+                </relation>
+            </field>
+            <field name="netEquipmentPasswordLogin">
+                <displayName>Логин</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netEquipmentPasswordPassword">
+                <displayName>Пароль</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netEquipmentPasswordDateTime">
+                <displayName>Дата/Время</displayName>
+                <visible>true</visible>
+                <editor>dateTimeEdit</editor>
+            </field>
+        </table>
+    </tableView>
+</database>

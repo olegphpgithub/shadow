@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <head>
+        <name>offices</name>
+        <field name="officeIdentifier">Код</field>
+    </head>
+    <body>
+        <row>
+            <field name="officeIdentifier">6800</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6801</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6802</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6803</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6804</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6805</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6806</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6807</field>
+        </row>
+        <row>
+            <field name="officeIdentifier">6808</field>
+        </row>
+    </body>
+</doc>
