@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <toolBar>
+        <action name="networkobjects">
+            <displayName>Организации</displayName>
+            <displayTable>networkobjects</displayTable>
+        </action>
+    </toolBar>
+    <tableView name="networkobjects">
+        <table>
+            <field name="netWorkObjectId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+                <primaryKey/>
+            </field>
+            <field name="netWorkObjectParentId">
+                <displayName>Родительский объект</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>networkobjects</relationTable>
+                    <relationField>netWorkObjectId</relationField>
+                    <displayField>netWorkObjectName</displayField>
+                </relation>
+            </field>
+            <field name="netWorkObjectTypeId">
+                <displayName>Тип</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>networkobjecttypes</relationTable>
+                    <relationField>netWorkObjectTypeId</relationField>
+                    <displayField>netWorkObjectTypeName</displayField>
+                </relation>
+            </field>
+            <field name="netWorkObjectName">
+                <displayName>Имя</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netWorkObjectAddress">
+                <displayName>Адрес</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netWorkObjectOS">
+                <displayName>Система</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netWorkObjectComment">
+                <displayName>Комментарий</displayName>
+                <visible>false</visible>
+                <editor>plainTextEdit</editor>
+            </field>
+        </table>
+    </tableView>
+</database>
