@@ -5,8 +5,18 @@
             <displayName>Организации</displayName>
             <displayTable>networkobjects</displayTable>
         </action>
+        <action name="networkobjectpasswords">
+            <displayName>Пароли</displayName>
+            <displayTable>networkobjectpasswords</displayTable>
+        </action>
     </toolBar>
     <tableView name="networkobjects">
+        <contextMenu>
+            <action name="networkobjectpasswords">
+                <displayName>Пароли</displayName>
+                <displayTable>networkobjectpasswords</displayTable>
+            </action>
+        </contextMenu>
         <table>
             <field name="netWorkObjectId">
                 <displayName>Идентификатор</displayName>
@@ -48,6 +58,45 @@
                 <editor>lineEdit</editor>
             </field>
             <field name="netWorkObjectComment">
+                <displayName>Комментарий</displayName>
+                <visible>false</visible>
+                <editor>plainTextEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="networkobjectpasswords">
+        <table>
+            <field name="netWorkObjectPasswordId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+                <primaryKey/>
+            </field>
+            <field name="netWorkObjectId">
+                <displayName>Родительский объект</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>networkobjects</relationTable>
+                    <relationField>netWorkObjectId</relationField>
+                    <displayField>netWorkObjectName</displayField>
+                </relation>
+            </field>
+            <field name="netWorkObjectPasswordLogin">
+                <displayName>Логин</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netWorkObjectPasswordPassword">
+                <displayName>Пароль</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netWorkObjectPasswordDateTime">
+                <displayName>Дата/Время</displayName>
+                <visible>true</visible>
+                <editor>dateEdit</editor>
+            </field>
+            <field name="netWorkObjectPasswordComment">
                 <displayName>Комментарий</displayName>
                 <visible>false</visible>
                 <editor>plainTextEdit</editor>

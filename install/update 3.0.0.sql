@@ -58,7 +58,7 @@ INSERT INTO networkobjects VALUES
 ;
 
 
-CREATE TABLE netobjectspasswords
+CREATE TABLE networkobjectpasswords
 (
     netWorkObjectPasswordId int(11) NOT NULL AUTO_INCREMENT,
     netWorkObjectId int(11) NOT NULL DEFAULT 0,
