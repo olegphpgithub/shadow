@@ -4,9 +4,6 @@ CREATE TABLE `_struct` (
 DEFAULT CHARSET=utf8
 
 
-
-
-
 CREATE TABLE `networkobjecttypes` (
     netWorkObjectTypeId int(11) PRIMARY KEY AUTO_INCREMENT,
     netWorkObjectTypeName tinytext
@@ -15,26 +12,28 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 
 
-CREATE TABLE `networkobjects` (
+CREATE TABLE `networkobjects`
+(
     `netWorkObjectId` int(11) NOT NULL AUTO_INCREMENT,
-    `netWorkObjectParentId` int(11) DEFAULT NULL,
-    `netWorkObjectTypeId` int(11) NOT NULL DEFAULT 0,
+    `netWorkObjectParentId` int(11) NOT NULL DEFAULT '0',
+    `netWorkObjectTypeId` int(11) NOT NULL DEFAULT '0',
     `netWorkObjectName` tinytext,
     `netWorkObjectAddress` tinytext,
     `netWorkObjectOS` tinytext,
     `netWorkObjectComment` tinytext,
     PRIMARY KEY (`netWorkObjectId`),
-    FOREIGN KEY (netWorkObjectParentId) REFERENCES networkobjects(netWorkObjectId) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (netWorkObjectTypeId) REFERENCES networkobjecttypes(netWorkObjectTypeId) ON UPDATE CASCADE ON DELETE RESTRICT
+    KEY `netWorkObjectParentId` (`netWorkObjectParentId`),
+    KEY `netWorkObjectTypeId` (`netWorkObjectTypeId`),
+    CONSTRAINT `networkobjects_ibfk_2` FOREIGN KEY (`netWorkObjectTypeId`) REFERENCES `networkobjecttypes` (`netWorkObjectTypeId`) ON UPDATE CASCADE
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8
-;
+
 
 INSERT INTO networkobjects VALUES
 (
     NULL,
-    NULL,
+    0,
     0,
     NULL,
     NULL,
@@ -43,7 +42,11 @@ INSERT INTO networkobjects VALUES
 )
 ;
 
+
 UPDATE networkobjects SET netWorkObjectId = 0;
+
+
+ALTER TABLE networkobjects MODIFY COLUMN `netWorkObjectParentId` int(11) NOT NULL DEFAULT 0;
 
 INSERT INTO networkobjects VALUES
 (
