@@ -4,30 +4,35 @@ CREATE TABLE `_struct` (
 DEFAULT CHARSET=utf8
 
 
+DROP TABLE IF EXISTS `networkobjecttypes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `networkobjecttypes` (
-    netWorkObjectTypeId int(11) PRIMARY KEY AUTO_INCREMENT,
-    netWorkObjectTypeName tinytext
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8
+  `netWorkObjectTypeId` int(11) NOT NULL AUTO_INCREMENT,
+  `netWorkObjectTypeName` tinytext,
+  PRIMARY KEY (`netWorkObjectTypeId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
-CREATE TABLE `networkobjects`
-(
-    `netWorkObjectId` int(11) NOT NULL AUTO_INCREMENT,
-    `netWorkObjectParentId` int(11) NOT NULL DEFAULT '0',
-    `netWorkObjectTypeId` int(11) NOT NULL DEFAULT '0',
-    `netWorkObjectName` tinytext,
-    `netWorkObjectAddress` tinytext,
-    `netWorkObjectOS` tinytext,
-    `netWorkObjectComment` tinytext,
-    PRIMARY KEY (`netWorkObjectId`),
-    KEY `netWorkObjectParentId` (`netWorkObjectParentId`),
-    KEY `netWorkObjectTypeId` (`netWorkObjectTypeId`),
-    CONSTRAINT `networkobjects_ibfk_2` FOREIGN KEY (`netWorkObjectTypeId`) REFERENCES `networkobjecttypes` (`netWorkObjectTypeId`) ON UPDATE CASCADE
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8
+DROP TABLE IF EXISTS `networkobjects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `networkobjects` (
+  `netWorkObjectId` int(11) NOT NULL AUTO_INCREMENT,
+  `netWorkObjectParentId` int(11) NOT NULL DEFAULT '0',
+  `netWorkObjectTypeId` int(11) NOT NULL DEFAULT '0',
+  `netWorkObjectName` tinytext,
+  `netWorkObjectAddress` tinytext,
+  `netWorkObjectTeamViewer` tinytext,
+  `netWorkObjectOS` tinytext,
+  `netWorkObjectComment` text,
+  PRIMARY KEY (`netWorkObjectId`),
+  KEY `netWorkObjectParentId` (`netWorkObjectParentId`),
+  KEY `netWorkObjectTypeId` (`netWorkObjectTypeId`),
+  CONSTRAINT `networkobjects_ibfk_2` FOREIGN KEY (`netWorkObjectTypeId`) REFERENCES `networkobjecttypes` (`netWorkObjectTypeId`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 INSERT INTO networkobjects VALUES

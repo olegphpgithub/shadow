@@ -2,7 +2,7 @@
 <database>
     <toolBar>
         <action name="networkobjects">
-            <displayName>Организации</displayName>
+            <displayName>Сетевые объекты</displayName>
             <displayTable>networkobjects</displayTable>
         </action>
         <action name="networkobjectpasswords">
@@ -48,7 +48,12 @@
                 <editor>lineEdit</editor>
             </field>
             <field name="netWorkObjectAddress">
-                <displayName>Адрес</displayName>
+                <displayName>Сетевой адрес</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="netWorkObjectTeamViewer">
+                <displayName>TeamViewer адрес</displayName>
                 <visible>true</visible>
                 <editor>lineEdit</editor>
             </field>
@@ -98,7 +103,7 @@
             </field>
             <field name="netWorkObjectPasswordComment">
                 <displayName>Комментарий</displayName>
-                <visible>false</visible>
+                <visible>true</visible>
                 <editor>plainTextEdit</editor>
             </field>
         </table>
