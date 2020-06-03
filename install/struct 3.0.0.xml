@@ -118,6 +118,15 @@
                     <displayField>netWorkObjectName</displayField>
                 </relation>
             </field>
+            <field name="userId">
+                <displayName>Фамилия имя отчество</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>usersview</relationTable>
+                    <relationField>userId</relationField>
+                    <displayField>userSurnameNamePatronymicPosition</displayField>
+                </relation>
+            </field>
             <field name="netWorkObjectTypeId">
                 <displayName>Тип</displayName>
                 <visible>true</visible>
