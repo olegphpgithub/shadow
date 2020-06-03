@@ -80,9 +80,82 @@ CREATE TABLE networkobjectpasswords
 ;
 
 
+CREATE TABLE `offices` (
+    `officeId` int(11) NOT NULL AUTO_INCREMENT,
+    `officeIdentifier` int(11) DEFAULT NULL,
+    `officeName` tinytext,
+    `officeAddress` tinytext,
+    PRIMARY KEY(`officeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+;
 
 
+CREATE TABLE `users` (
+    `userId` int(11) NOT NULL AUTO_INCREMENT,
+    `officeId` int(11) NOT NULL DEFAULT '0',
+    `userSurnameNamePatronymic` tinytext,
+    `userBirthday` date DEFAULT NULL,
+    `userPosition` tinytext,
+    `userTelephoneMobile` tinytext,
+    `userEMail` tinytext,
+    PRIMARY KEY(`userId`),
+    CONSTRAINT `users_ibfk_1` FOREIGN KEY (`officeId`) REFERENCES `offices` (`officeId`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+;
+
+insert into users values(0, '', NULL, '', '', '');
+
+update `users` set `userId` = 0;
 
 
+alter table networkobjectpasswords modify column userId int(11) NOT NULL;
+alter table `users` add `officeId` int(11) after `userId` NOT NULL DEFAULT '0';
+alter table `networkobjects` add `userId` int(11) after `netWorkObjectTypeId` NOT NULL DEFAULT '0';
+
+alter table networkobjectpasswords
+    ADD CONSTRAINT `networkobjectpasswords_ibfk_2` FOREIGN KEY (`userId`)
+    REFERENCES `users`(`userId`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT
+;
+
+alter table users
+    ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`officeId`)
+    REFERENCES `offices`(`officeId`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT
+;
 
 
+alter table networkobjects
+    ADD CONSTRAINT `networkobjects_ibfk_1` FOREIGN KEY (`userId`)
+    REFERENCES `users`(`userId`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
+;
+
+insert into offices values(NULL, 0, '', '');
+update offices set officeId = 0;
+
+CREATE  VIEW
+`usersview` AS select
+`users`.`userId` AS
+`userId`,`users`.`officeId` AS
+`officeId`,(case when
+(concat(`users`.`userSurnameNamePatronymic`,_utf8'
+(',`users`.`userPosition`,_utf8')')
+= _utf8' ()') then _utf8''
+else
+concat(`users`.`userSurnameNamePatronymic`,_utf8'
+(',`users`.`userPosition`,_utf8')')
+end) AS
+`userSurnameNamePatronymicPosition`
+from `users` order by (case
+when
+(concat(`users`.`userSurnameNamePatronymic`,_utf8'
+(',`users`.`userPosition`,_utf8')')
+= _utf8' ()') then _utf8''
+else
+concat(`users`.`userSurnameNamePatronymic`,_utf8'
+(',`users`.`userPosition`,_utf8')')
+end)

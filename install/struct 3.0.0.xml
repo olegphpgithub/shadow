@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <database>
     <toolBar>
+        <action name="offices">
+            <displayName>Офисы</displayName>
+            <displayTable>offices</displayTable>
+        </action>
+        <action name="users">
+            <displayName>Сотрудники</displayName>
+            <displayTable>users</displayTable>
+        </action>
         <action name="networkobjects">
             <displayName>Сетевые объекты</displayName>
             <displayTable>networkobjects</displayTable>
@@ -10,6 +18,83 @@
             <displayTable>networkobjectpasswords</displayTable>
         </action>
     </toolBar>
+    <tableView name="offices">
+        <contextMenu>
+            <action name="users">
+                <displayName>Сотрудники</displayName>
+                <displayTable>users</displayTable>
+            </action>
+        </contextMenu>
+        <table>
+            <field name="officeId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="officeIdentifier">
+                <displayName>Код</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="officeName">
+                <displayName>Наименование</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="officeAddress">
+                <displayName>Адрес</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="users">
+        <contextMenu>
+            <action name="networkobjectpasswords">
+                <displayName>Пароли</displayName>
+                <displayTable>networkobjectpasswords</displayTable>
+            </action>
+        </contextMenu>
+        <table>
+            <field name="userId">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="officeId">
+                <displayName>Офис</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>offices</relationTable>
+                    <relationField>officeId</relationField>
+                    <displayField>officeIdentifier</displayField>
+                </relation>
+            </field>
+            <field name="userSurnameNamePatronymic">
+                <displayName>Фамилия имя отчество</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userBirthday">
+                <displayName>День рождения</displayName>
+                <type>date</type>
+                <editor>dateEdit</editor>
+            </field>
+            <field name="userPosition">
+                <displayName>Должность</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userTelephoneMobile">
+                <displayName>Мобильный телефон</displayName>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="userEMail">
+                <displayName>E-Mail</displayName>
+                <editor>lineEdit</editor>
+            </field>
+        </table>
+    </tableView>
     <tableView name="networkobjects">
         <contextMenu>
             <action name="networkobjectpasswords">
@@ -84,6 +169,15 @@
                     <relationTable>networkobjects</relationTable>
                     <relationField>netWorkObjectId</relationField>
                     <displayField>netWorkObjectName</displayField>
+                </relation>
+            </field>
+            <field name="userId">
+                <displayName>Фамилия имя отчество</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>usersview</relationTable>
+                    <relationField>userId</relationField>
+                    <displayField>userSurnameNamePatronymicPosition</displayField>
                 </relation>
             </field>
             <field name="netWorkObjectPasswordLogin">
