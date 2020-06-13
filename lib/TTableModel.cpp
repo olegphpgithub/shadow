@@ -32,10 +32,6 @@ void TTableModel::setTable(const QString &name)
         columnStringList.append(headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
     }
     
-    for(int i=0; i<columnCount(); i++) {
-        columnStringList.append(headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
-    }
-    
     if (primaryKey().isEmpty()) {
         QSqlIndex primaryIndex("primaryKey", "primaryKey");
         
