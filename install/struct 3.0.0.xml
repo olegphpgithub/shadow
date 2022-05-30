@@ -17,6 +17,10 @@
             <displayName>Пароли</displayName>
             <displayTable>networkobjectpasswords</displayTable>
         </action>
+        <action name="feedbacks">
+            <displayName>Отклики</displayName>
+            <displayTable>feedbacks</displayTable>
+        </action>
     </toolBar>
     <tableView name="offices">
         <contextMenu>
@@ -208,6 +212,31 @@
                 <displayName>Комментарий</displayName>
                 <visible>true</visible>
                 <editor>plainTextEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="feedbacks">
+        <table>
+            <field name="code">
+                <displayName>Идентификатор</displayName>
+                <visible>true</visible>
+                <editor>spinBox</editor>
+                <primaryKey/>
+            </field>
+            <field name="family">
+                <displayName>Семейство</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="purpose">
+                <displayName>Цель</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="description">
+                <displayName>Описание</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
             </field>
         </table>
     </tableView>

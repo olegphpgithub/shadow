@@ -137,25 +137,28 @@ alter table networkobjects
 insert into offices values(NULL, 0, '', '');
 update offices set officeId = 0;
 
-CREATE  VIEW
-`usersview` AS select
-`users`.`userId` AS
-`userId`,`users`.`officeId` AS
-`officeId`,(case when
-(concat(`users`.`userSurnameNamePatronymic`,_utf8'
-(',`users`.`userPosition`,_utf8')')
-= _utf8' ()') then _utf8''
-else
-concat(`users`.`userSurnameNamePatronymic`,_utf8'
-(',`users`.`userPosition`,_utf8')')
-end) AS
-`userSurnameNamePatronymicPosition`
-from `users` order by (case
-when
-(concat(`users`.`userSurnameNamePatronymic`,_utf8'
-(',`users`.`userPosition`,_utf8')')
-= _utf8' ()') then _utf8''
-else
-concat(`users`.`userSurnameNamePatronymic`,_utf8'
-(',`users`.`userPosition`,_utf8')')
-end)
+CREATE OR REPLACE VIEW
+    `usersview` AS select
+    `users`.`userId` AS
+    `userId`,`users`.`officeId` AS
+    `officeId`,
+    (
+    case
+        when (concat(`users`.`userSurnameNamePatronymic`,_utf8' (',`users`.`userPosition`,_utf8')') = _utf8' ()')
+        then
+            _utf8''
+        else
+            concat(`users`.`userSurnameNamePatronymic`,_utf8' (',`users`.`userPosition`,_utf8')')
+        end
+    ) AS `userSurnameNamePatronymicPosition`
+from `users` order by 
+    (
+    case
+        when (concat(`users`.`userSurnameNamePatronymic`,_utf8' (',`users`.`userPosition`,_utf8')') = _utf8' ()')
+        then
+            _utf8''
+        else
+            concat(`users`.`userSurnameNamePatronymic`,_utf8' (',`users`.`userPosition`,_utf8')')
+        end
+    )
+;
