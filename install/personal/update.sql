@@ -3,12 +3,13 @@ CREATE TABLE `users`
     `userId` int(11) NOT NULL AUTO_INCREMENT,
     `userSurnameNamePatronymic` tinytext,
     `userBirthday` date DEFAULT NULL,
-    PRIMARY KEY (`userId`),
-    KEY `users_ibfk_1` (`officeId`)
+    PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
 INSERT INTO `users` VALUES(0, "", NULL);
+UPDATE `users` set `userId` = 0;
+ALTER TABLE `users` AUTO_INCREMENT = 1;
 
 CREATE TABLE `networkobjects`
 (
@@ -24,6 +25,8 @@ CREATE TABLE `networkobjects`
 ;
 
 INSERT INTO `networkobjects` VALUES(0, 0, "", "", "");
+UPDATE `networkobjects` set `netWorkObjectId` = 0;
+ALTER TABLE `networkobjects` AUTO_INCREMENT = 1;
 
 CREATE TABLE `networkobjectpasswords`
 (
@@ -41,4 +44,6 @@ CREATE TABLE `networkobjectpasswords`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ;
 
-INSERT INTO `networkobjects` VALUES(0, 0, 0, "", "", NULL, "");
+INSERT INTO `networkobjectpasswords` VALUES(0, 0, 0, "", "", NULL, "");
+UPDATE `networkobjectpasswords` set `netWorkObjectId` = 0;
+ALTER TABLE `networkobjectpasswords` AUTO_INCREMENT = 1;
