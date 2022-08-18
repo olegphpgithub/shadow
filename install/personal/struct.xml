@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <database>
     <toolBar>
-        <action name="offices">
-            <displayName>Офисы</displayName>
-            <displayTable>offices</displayTable>
-        </action>
         <action name="users">
             <displayName>Сотрудники</displayName>
             <displayTable>users</displayTable>
@@ -17,45 +13,7 @@
             <displayName>Пароли</displayName>
             <displayTable>networkobjectpasswords</displayTable>
         </action>
-        <action name="feedbacks">
-            <displayName>Отклики</displayName>
-            <displayTable>feedbacks</displayTable>
-        </action>
-        <action name="telemetry">
-            <displayName>Телеметрия</displayName>
-            <displayTable>telemetry</displayTable>
-        </action>
     </toolBar>
-    <tableView name="offices">
-        <contextMenu>
-            <action name="users">
-                <displayName>Сотрудники</displayName>
-                <displayTable>users</displayTable>
-            </action>
-        </contextMenu>
-        <table>
-            <field name="officeId">
-                <displayName>Идентификатор</displayName>
-                <visible>false</visible>
-                <editor>spinBox</editor>
-            </field>
-            <field name="officeIdentifier">
-                <displayName>Код</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="officeName">
-                <displayName>Наименование</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="officeAddress">
-                <displayName>Адрес</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-        </table>
-    </tableView>
     <tableView name="users">
         <contextMenu>
             <action name="networkobjectpasswords">
@@ -68,15 +26,7 @@
                 <displayName>Идентификатор</displayName>
                 <visible>false</visible>
                 <editor>spinBox</editor>
-            </field>
-            <field name="officeId">
-                <displayName>Офис</displayName>
-                <visible>true</visible>
-                <relation>
-                    <relationTable>offices</relationTable>
-                    <relationField>officeId</relationField>
-                    <displayField>officeIdentifier</displayField>
-                </relation>
+                <primaryKey/>
             </field>
             <field name="userSurnameNamePatronymic">
                 <displayName>Фамилия имя отчество</displayName>
@@ -87,19 +37,6 @@
                 <displayName>День рождения</displayName>
                 <type>date</type>
                 <editor>dateEdit</editor>
-            </field>
-            <field name="userPosition">
-                <displayName>Должность</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="userTelephoneMobile">
-                <displayName>Мобильный телефон</displayName>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="userEMail">
-                <displayName>E-Mail</displayName>
-                <editor>lineEdit</editor>
             </field>
         </table>
     </tableView>
@@ -117,31 +54,13 @@
                 <editor>spinBox</editor>
                 <primaryKey/>
             </field>
-            <field name="netWorkObjectParentId">
-                <displayName>Родительский объект</displayName>
-                <visible>true</visible>
-                <relation>
-                    <relationTable>networkobjects</relationTable>
-                    <relationField>netWorkObjectId</relationField>
-                    <displayField>netWorkObjectName</displayField>
-                </relation>
-            </field>
             <field name="userId">
                 <displayName>Фамилия имя отчество</displayName>
                 <visible>true</visible>
                 <relation>
-                    <relationTable>usersview</relationTable>
+                    <relationTable>users</relationTable>
                     <relationField>userId</relationField>
-                    <displayField>userSurnameNamePatronymicPosition</displayField>
-                </relation>
-            </field>
-            <field name="netWorkObjectTypeId">
-                <displayName>Тип</displayName>
-                <visible>true</visible>
-                <relation>
-                    <relationTable>networkobjecttypes</relationTable>
-                    <relationField>netWorkObjectTypeId</relationField>
-                    <displayField>netWorkObjectTypeName</displayField>
+                    <displayField>userSurnameNamePatronymic</displayField>
                 </relation>
             </field>
             <field name="netWorkObjectName">
@@ -151,16 +70,6 @@
             </field>
             <field name="netWorkObjectAddress">
                 <displayName>Сетевой адрес</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="netWorkObjectTeamViewer">
-                <displayName>TeamViewer адрес</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="netWorkObjectOS">
-                <displayName>Система</displayName>
                 <visible>true</visible>
                 <editor>lineEdit</editor>
             </field>
@@ -192,9 +101,9 @@
                 <displayName>Фамилия имя отчество</displayName>
                 <visible>true</visible>
                 <relation>
-                    <relationTable>usersview</relationTable>
+                    <relationTable>users</relationTable>
                     <relationField>userId</relationField>
-                    <displayField>userSurnameNamePatronymicPosition</displayField>
+                    <displayField>userSurnameNamePatronymic</displayField>
                 </relation>
             </field>
             <field name="netWorkObjectPasswordLogin">
@@ -216,70 +125,6 @@
                 <displayName>Комментарий</displayName>
                 <visible>true</visible>
                 <editor>plainTextEdit</editor>
-            </field>
-        </table>
-    </tableView>
-    <tableView name="feedbacks">
-        <table>
-            <field name="code">
-                <displayName>Идентификатор</displayName>
-                <visible>true</visible>
-                <editor>spinBox</editor>
-                <primaryKey/>
-            </field>
-            <field name="family">
-                <displayName>Семейство</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="purpose">
-                <displayName>Цель</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="description">
-                <displayName>Описание</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-        </table>
-    </tableView>
-    <tableView name="telemetry">
-        <table>
-            <field name="id">
-                <displayName>Идентификатор</displayName>
-                <visible>false</visible>
-                <editor>spinBox</editor>
-                <primaryKey/>
-            </field>
-            <field name="code">
-                <displayName>Отклик</displayName>
-                <visible>true</visible>
-                <relation>
-                    <relationTable>feedbacksview</relationTable>
-                    <relationField>code</relationField>
-                    <displayField>resume</displayField>
-                </relation>
-            </field>
-            <field name="product">
-                <displayName>Продукт</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="aff">
-                <displayName>SCB</displayName>
-                <visible>true</visible>
-                <editor>spinBox</editor>
-            </field>
-            <field name="disposition">
-                <displayName>Размещение</displayName>
-                <visible>true</visible>
-                <editor>lineEdit</editor>
-            </field>
-            <field name="grade">
-                <displayName>Порядок</displayName>
-                <visible>true</visible>
-                <editor>spinBox</editor>
             </field>
         </table>
     </tableView>
