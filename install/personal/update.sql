@@ -45,5 +45,11 @@ CREATE TABLE `networkobjectpasswords`
 ;
 
 INSERT INTO `networkobjectpasswords` VALUES(0, 0, 0, "", "", NULL, "");
-UPDATE `networkobjectpasswords` set `netWorkObjectId` = 0;
+UPDATE `networkobjectpasswords` set `netWorkObjectPasswordId` = 0;
 ALTER TABLE `networkobjectpasswords` AUTO_INCREMENT = 1;
+
+CREATE TABLE `_struct`
+(
+    `_struct` blob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+;
