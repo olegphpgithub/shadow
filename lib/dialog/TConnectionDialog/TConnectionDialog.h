@@ -13,6 +13,7 @@ private:
 public slots:
     void accept();
     void reject();
+    void save();
 };
 
 #endif // TCONNECTIONDIALOG_H
