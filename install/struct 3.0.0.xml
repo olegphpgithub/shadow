@@ -154,6 +154,11 @@
                 <visible>true</visible>
                 <editor>lineEdit</editor>
             </field>
+            <field name="netWorkObjectTag">
+                <displayName>Тэг</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
             <field name="netWorkObjectTeamViewer">
                 <displayName>TeamViewer адрес</displayName>
                 <visible>true</visible>
