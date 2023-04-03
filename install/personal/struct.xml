@@ -121,6 +121,11 @@
                 <visible>true</visible>
                 <editor>dateEdit</editor>
             </field>
+            <field name="netWorkObjectResource">
+                <displayName>Ресурс</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
             <field name="netWorkObjectPasswordComment">
                 <displayName>Комментарий</displayName>
                 <visible>true</visible>
