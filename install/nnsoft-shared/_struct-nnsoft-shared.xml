@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <toolBar>
+        <action name="feedbacks">
+            <displayName>Отклики</displayName>
+            <displayTable>feedbacks</displayTable>
+        </action>
+        <action name="telemetry">
+            <displayName>Телеметрия</displayName>
+            <displayTable>telemetry</displayTable>
+        </action>
+    </toolBar>
+    <tableView name="feedbacks">
+        <table>
+            <field name="code">
+                <displayName>Идентификатор</displayName>
+                <visible>true</visible>
+                <editor>spinBox</editor>
+                <primaryKey/>
+            </field>
+            <field name="family">
+                <displayName>Семейство</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="purpose">
+                <displayName>Цель</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="description">
+                <displayName>Описание</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+        </table>
+    </tableView>
+    <tableView name="telemetry">
+        <table>
+            <field name="id">
+                <displayName>Идентификатор</displayName>
+                <visible>false</visible>
+                <editor>spinBox</editor>
+                <primaryKey/>
+            </field>
+            <field name="code">
+                <displayName>Отклик</displayName>
+                <visible>true</visible>
+                <relation>
+                    <relationTable>feedbacksview</relationTable>
+                    <relationField>code</relationField>
+                    <displayField>resume</displayField>
+                </relation>
+            </field>
+            <field name="product">
+                <displayName>Продукт</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="aff">
+                <displayName>SCB</displayName>
+                <visible>true</visible>
+                <editor>spinBox</editor>
+            </field>
+            <field name="disposition">
+                <displayName>Размещение</displayName>
+                <visible>true</visible>
+                <editor>lineEdit</editor>
+            </field>
+            <field name="grade">
+                <displayName>Порядок</displayName>
+                <visible>true</visible>
+                <editor>spinBox</editor>
+            </field>
+        </table>
+    </tableView>
+</database>
